@@ -20,4 +20,10 @@ public class SportConfig {
     public SwimCoach swimCoach() {
         return new SwimCoach(sadFortuneService());
     }
+
+    //define our swim coach and inject our sad fortune service
+    @Bean
+    public WrestlingCoach wrestlingCoach() {
+        return new WrestlingCoach(sadFortuneService());
+    }
 }
