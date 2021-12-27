@@ -6,4 +6,5 @@ public interface Coach {
     String getDetails();
 
     String getDailyFortune();
+
 }
