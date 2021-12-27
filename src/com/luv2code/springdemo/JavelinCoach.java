@@ -7,11 +7,6 @@ public class JavelinCoach implements Coach {
 
     FortuneService fortuneService;
 
-//    @Autowired
-//    public JavelinCoach(FortuneService fortuneService) {
-//        this.fortuneService = fortuneService;
-//    }
-
     @Override
     public String getDailyWorkout() {
         return "Throw 20 javelins";
