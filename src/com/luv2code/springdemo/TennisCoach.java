@@ -2,6 +2,7 @@ package com.luv2code.springdemo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,13 +11,7 @@ public class TennisCoach implements Coach {
     @Qualifier("randomFortuneService")
     @Autowired
     private FortuneService fortuneService;
-
-    //define a default constructor
-    public TennisCoach() {
-        System.out.println("TennisCoach: Inside default constructor");
-    }
-
-//    public TennisCoach(FortuneService fortuneService) {
+    //    public TennisCoach(FortuneService fortuneService) {
 //        this.fortuneService = fortuneService;
 //    }
 //    //define a setter
@@ -32,10 +27,24 @@ public class TennisCoach implements Coach {
 //        System.out.println("TennisCoach: Inside setFortuneService() method");
 //        this.fortuneService = fortuneService;
 //    }
+    @Value("${foo.email}")
+    private String email;
+    @Value("${foo.team}")
+    private String team;
+
+    //define a default constructor
+    public TennisCoach() {
+        System.out.println("TennisCoach: Inside default constructor");
+    }
 
     @Override
     public String getDailyWorkout() {
         return "Practice your backhand volley";
+    }
+
+    @Override
+    public String getDetails() {
+        return "Team: " + team + "\nEmail: " + email;
     }
 
     @Override
